@@ -8,9 +8,9 @@ class Gameboard {
     missedShots = [];
 
     constructor() {
-        for (var i=0; i < 8; i++) {
+        for (var i=0; i<10; i++) {
             var row = [];
-            for (var j=0; j<8; j++) {
+            for (var j=0; j<10; j++) {
                 row.push(null);
             }
             this.coordinates.push(row);
