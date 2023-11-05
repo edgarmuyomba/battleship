@@ -1,0 +1,10 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+}
+
+.author {
+    margin-left: auto;
+    font-size: 13px;
+}
