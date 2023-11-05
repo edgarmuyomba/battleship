@@ -1,5 +1,5 @@
-const Gameboard = require('../src/models/gameboard.js');
-const Ship = require('../src/models/ship.js');
+const Gameboard = require('../models/gameboard.js');
+const Ship = require('../models/ship.js');
 
 function testLength(x, y, length, coordinates) {
     for (let i=x; i<=(x+length); i++) {
