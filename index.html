@@ -19,10 +19,725 @@
             Muyomba
         </div>
     </div>
-    <div class="start">
-        <div class="title">Welcome to</div>
-        <div class="header">Battleship</div>
-        <div class="button">START</div>
+    <div class="main">
+        <div class="start" style="display: none;">
+            <div class="header">Battleship</div>
+            <button class="button">START</button>
+        </div>
+        <div class="boards">
+            <div class="human">
+                <div class="header">
+                    YOUR FLEET
+                </div>
+                <div class="gameboard">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                            <th>F</th>
+                            <th>G</th>
+                            <th>H</th>
+                            <th>I</th>
+                            <th>J</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content">
+                                    <div class="hit"></div>
+                                </div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content">
+                                    <div class="miss"></div>
+                                </div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="computer">
+                <div class="header">
+                    OPPONENT
+                </div>
+                <div class="gameboard">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                            <th>F</th>
+                            <th>G</th>
+                            <th>H</th>
+                            <th>I</th>
+                            <th>J</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content">
+                                    <div class="hit"></div>
+                                </div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content">
+                                    <div class="miss"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                            <td class="cell">
+                                <div class="content"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
