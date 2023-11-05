@@ -1,7 +1,24 @@
 .navbar {
     display: flex;
     flex-direction: row;
-    padding: 8px;
+    padding: 16px;
+    background-color: whitesmoke;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.logo-container {
+    padding-right: 8px;
+    border-right: 1px solid black;
+    margin-right: 8px;
+}
+
+.logo {
+    height: 20px;
+    width: 20px;
+    background-image: url("../assets/images/logo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .author {
