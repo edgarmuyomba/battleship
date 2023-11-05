@@ -1,3 +1,5 @@
+const Ship = require('./ship.js');
+
 class Gameboard {
     ships = [];
 
@@ -9,21 +11,20 @@ class Gameboard {
         for (var i=0; i < 8; i++) {
             var row = [];
             for (var j=0; j<8; j++) {
-                row.add(null);
+                row.push(null);
             }
-            this.coordinates.add(row);
+            this.coordinates.push(row);
         }
     }
 
-    addShip(x, y) {
+    addShip(x, y, ship) {
         // adds a new ship to the gameboard
-        var newShip = new Ship();
-        this.ships.add(newShip);
+        this.ships.push(ship);
+        
+        var end = [x+ship.length,y];
 
-        var end = [[x+newShip.length][y]];
-
-        for (var i=x; i<end[0]+1; i++) {
-            this.coordinates[i][y] = newShip;
+        for (var i=x; i<=end[0]; i++) {
+            this.coordinates[i][y] = ship;
         }
     }
 
@@ -33,7 +34,7 @@ class Gameboard {
             var ship = this.coordinates[x][y];
             ship.hit();
         } else {
-            this.missedShots.add([x, y]);
+            this.missedShots.push([x, y]);
         }
     }
 
@@ -45,3 +46,22 @@ class Gameboard {
         return true;
     }
 }
+
+var gameboard = new Gameboard();
+var my_ship = new Ship(5);
+
+gameboard.addShip(2, 3, my_ship);
+gameboard.receiveAttack(1, 1);
+
+function testLength(x, y, length, coordinates) {
+    for (let i=x; i<=(x+length); i++) {
+        if (coordinates[i][y] === null) return false;
+    }
+    return true;
+}
+
+// console.log(testLength(2,3,5, gameboard.coordinates));
+
+// console.log(gameboard.missedShots);
+
+module.exports = Gameboard;
