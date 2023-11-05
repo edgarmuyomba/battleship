@@ -33,8 +33,10 @@ class Gameboard {
         if (hit) {
             var ship = this.coordinates[x][y];
             ship.hit();
+            return true;
         } else {
             this.missedShots.push([x, y]);
+            return false;
         }
     }
 
