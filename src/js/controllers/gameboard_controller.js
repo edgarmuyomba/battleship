@@ -13,5 +13,22 @@ var cells = [];
     }
 })();
 
-
 // trying to map document cells to gameboard coordinates
+
+function viewToCellMap(cell) {
+    var cellNo = parseInt(cell.classList[1]);
+    var rowNo = Math.floor(cells.indexOf(cell) / 10) + 1;
+    console.log(rowNo, cellNo);
+}
+
+cells.forEach((cell) => {
+    cell.addEventListener('click', () => {
+        viewToCellMap(cell);
+        cell.innerHTML = `
+                            <div class="content">
+                                <div class="hit">
+                                </div>
+                            </div>
+                        `;
+    })
+})
