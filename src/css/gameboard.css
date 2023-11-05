@@ -1,0 +1,81 @@
+.human, .computer {
+    height: 100%;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+}
+
+.human .cell {
+    background-color: lightcyan;
+}
+
+.human .cell:hover {
+    background-color: rgb(173, 255, 255);
+}
+
+.human .miss {
+    height: 70%;
+    width: 70%;
+    background-color: lightskyblue;
+    border-radius: 50%;
+}
+
+.computer .cell {
+    background-color: lightgrey;
+}
+
+.computer .cell:hover {
+    background-color: rgb(139, 139, 139);
+}
+
+.computer .miss {
+    height: 70%;
+    width: 70%;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+.cell > .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.hit {
+    height: 70%;
+    width: 70%;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.boards {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.boards .header {
+    width: 100%;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.human .header {
+    background-color: tomato;
+    color: white;
+}
+
+.computer .header {
+    background-color: lightslategrey;
+    color: white;
+}

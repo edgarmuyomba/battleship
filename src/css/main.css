@@ -11,3 +11,15 @@
     box-sizing: border-box;
     font-family: var(--quicksand);
 }
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.main {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
