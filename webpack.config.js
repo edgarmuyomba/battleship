@@ -18,5 +18,8 @@ module.exports = {
                 type: "asset/resource",
             }
         ]
+    },
+    devServer: {
+        static: "./dist",
     }
 }
