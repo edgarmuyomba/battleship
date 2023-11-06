@@ -1,19 +1,19 @@
-const Ship = require("../src/models/ship.js")
+const Ship = require("../models/ship.js");
 
 test("Hit works", () => {
-    var my_ship = new Ship(10);
+    var my_ship = new Ship("name", 10);
     my_ship.hit();
     expect(my_ship.hits).toBe(1);
 })
 
 test("Sinking works", () => {
-    var my_ship = new Ship(5);
+    var my_ship = new Ship("name", 5);
     for (let i=0; i<5; i++) my_ship.hit();
     expect(my_ship.isSunk()).toBeTruthy();
 })
 
 test("Sinking not works", () => {
-    var my_ship = new Ship(5);
+    var my_ship = new Ship("name", 5);
     for (let i=0; i<3; i++) my_ship.hit();
     expect(my_ship.isSunk()).toBeFalsy();
 })

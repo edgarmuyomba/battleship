@@ -1,8 +1,11 @@
 class Ship {
     length;
     hits = 0;
-    constructor(length) {
+    name;
+
+    constructor(name, length) {
         this.length = length;
+        this.name = name;
     }
 
     hit() {

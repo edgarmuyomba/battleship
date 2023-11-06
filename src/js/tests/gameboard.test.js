@@ -1,5 +1,5 @@
-const Gameboard = require('../models/gameboard.js');
-const Ship = require('../models/ship.js');
+const Ship = require("../models/ship.js");
+const Gameboard = require("../models/gameboard.js");
 
 function testLength(x, y, length, coordinates) {
     for (let i=x; i<=(x+length); i++) {
@@ -10,7 +10,7 @@ function testLength(x, y, length, coordinates) {
 
 test("Add ship works", () => {
     var gameboard = new Gameboard();
-    var my_ship = new Ship(5);
+    var my_ship = new Ship("name", 5);
 
     gameboard.addShip(2, 3, my_ship);
 
@@ -21,7 +21,7 @@ test("Add ship works", () => {
 
 test("Receive attack works!", () => {
     var gameboard = new Gameboard();
-    var my_ship = new Ship(5);
+    var my_ship = new Ship("name", 5);
 
     gameboard.addShip(2, 3, my_ship);
     gameboard.receiveAttack(1, 1);
@@ -33,7 +33,7 @@ test("Receive attack works!", () => {
 
 test("All Sunk works!", () => {
     var gameboard = new Gameboard();
-    var my_ship = new Ship(5);
+    var my_ship = new Ship("name", 5);
 
     gameboard.addShip(2, 3, my_ship);
     

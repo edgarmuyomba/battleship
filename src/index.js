@@ -6,3 +6,4 @@ import './css/gameOver.css';
 import './css/gameboard.css';
 
 import './js/controllers/attack_controller.js'
+import './js/controllers/gameLoop.js';
