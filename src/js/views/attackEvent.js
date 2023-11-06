@@ -1,22 +1,25 @@
-import { h_cells, h_attack } from "../controllers/humanGB_controller";
-
-// human 
-
-h_cells.forEach((cell) => {
-    cell.addEventListener('click', () => {
-        var attack = h_attack(cell);
-        if (attack) {
-            paintAttack(cell);
+function clickFeedback(data) { // data: { hit: true, cell: cell, gameOver: true }
+    if (data["gameOver"]) {
+        // end the game, last target is the loser!
+        console.log("Game Over!!!");
+    } else {
+        var cell = data["cell"];
+        if (data["hit"]) {
+            // paint the cell red
+            cell.innerHtml = `
+                                <div class="content">
+                                    <div class="hit"></div>
+                                </div>
+                            `;
+        } else {
+            // paint the cell according to the target
+            cell.innerHtml = `
+                                <div class="content">
+                                    <div class="miss"></div>
+                                </div>
+                            `;
         }
-    });
-});
-
-function paintAttack(cell) {
-    cell.style = "background-color: transparent";
-    cell.innerHTML = `
-                    <div class="content">
-                        <div class="hit">
-                        </div>
-                    </div>
-                `;
+    }
 }
+
+export { clickFeedback };

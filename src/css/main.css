@@ -3,6 +3,7 @@
 :root {
     --nunito: "Nunito", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     --quicksand: "Quicksand",  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: calc(1vw + 1vh);
 }
 
 * {
