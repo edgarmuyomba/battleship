@@ -1,6 +1,6 @@
-import { Gameboard } from "../models/gameboard";
-import { Ship } from "../models/ship";
 import { newGame } from "../views/newGame";
+const Gameboard = require("../models/gameboard.js");
+const Ship = require("../models/ship.js");
 
 // start the game
 const start = document.querySelector(".start .button");
