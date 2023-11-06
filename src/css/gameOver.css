@@ -1,3 +1,40 @@
 div.gameOver {
-    border: 1px solid red;
+    position: relative;
+    top: 50px;
+    background-color: whitesmoke;
+    width: 30%;
+    height: 110px;
+    border: 1px solid darkgrey;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gameOver > .header {
+    font-weight: 800;
+    font-size: 0.7rem;
+    color: red;
+    margin-top: 4px;
+}
+
+.gameOver > .winner {
+    border: 1px solid rgb(0, 80, 0);
+    padding: 8px;
+    margin: 8px 0;
+    background-color: lightgreen;
+    color: rgb(0, 80, 0);
+}
+
+.gameOver > .button {
+    margin-bottom: 4px;
+    color: #19558d; 
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.gameOver > .button:hover {
+    color: #0a2844;
+    text-decoration: underline;
 }
