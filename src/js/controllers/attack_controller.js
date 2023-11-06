@@ -60,7 +60,7 @@ c_cells.forEach((cell) => {
 // handling clicks
 
 function receiveClick(data) { // data: { target: human, cell: cell }
-    const role= data["target"];
+    const target= data["target"];
     const cell = data["cell"];
 
     // target -> objects map
@@ -72,14 +72,15 @@ function receiveClick(data) { // data: { target: human, cell: cell }
 
     // triangulate coordinates
     var cellNo = parseInt(cell.classList[1]);
-    var rowNo = Math.floor(map[role][0].indexOf(cell) / 10) + 1;
+    var rowNo = Math.floor(map[target][0].indexOf(cell) / 10) + 1;
 
     // modify gameboard
-    if (!map[role][1][`${rowNo}, ${cellNo}`]) {
-        map[role][1][`${rowNo}, ${cellNo}`] = true;
-        var attack = map[role][2].receiveAttack(rowNo, cellNo);
-        var gameOver = map[role][2].allSunk();
+    if (!map[target][1][`${rowNo}, ${cellNo}`]) {
+        map[target][1][`${rowNo}, ${cellNo}`] = true;
+        var attack = map[target][2].receiveAttack(rowNo, cellNo);
+        var gameOver = map[target][2].allSunk();
         return {
+            "target": target,
             "cell": cell,
             "hit": attack,
             "gameOver": gameOver

@@ -1,28 +1,31 @@
-function clickFeedback(data) { // data: { hit: true, cell: cell, gameOver: true }
-    if (data["gameOver"]) {
-        // end the game, last target is the loser!
-        const boards = document.querySelector("div.boards");
-        boards.style = "display: none;";
-
-        const gameOver = document.querySelector("div.gameOver");
-        gameOver.style = "";
-    } else {
-        var cell = data["cell"];
-        if (data["hit"]) {
-            // paint the cell red
-            cell.innerHtml = `
+function clickFeedback(data) { // data: { target: human, hit: true, cell: cell, gameOver: true }
+    var cell = data["cell"];
+    if (data["hit"]) {
+        // paint the cell red
+        cell.innerHTML = `
                                 <div class="content">
                                     <div class="hit"></div>
                                 </div>
                             `;
-        } else {
-            // paint the cell according to the target
-            cell.innerHtml = `
+    } else {
+        // paint the cell according to the target
+        cell.innerHTML = `
                                 <div class="content">
                                     <div class="miss"></div>
                                 </div>
                             `;
-        }
+    }
+
+    if (data["gameOver"]) {
+        setTimeout(() => {
+            // end the game, last target is the loser!
+            const gameOver = document.querySelector("div.game-container");
+            let winner = gameOver.querySelector("div.winner");
+
+            let _winner = data["target"] === "human" ? "CPU" : "You";
+            winner.textContent = `${_winner} won this round`;
+            gameOver.style = "";
+        }, 3000); 
     }
 }
 
