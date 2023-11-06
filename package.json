@@ -10,7 +10,8 @@
     "test": "jest",
     "build": "webpack",
     "watch": "webpack --watch",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "pages": "git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
   "author": "Edgar Matthew <edgarmatthew247@gmail.com>",
