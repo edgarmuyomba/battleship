@@ -77,8 +77,8 @@ function receiveClick(data) { // data: { target: human, cell: cell }
         return {
             "target": target,
             "cell": cell,
-            "hit": attack,
-            "gameOver": gameOver
+            "gameOver": gameOver,
+            ...attack
         };
     }
 

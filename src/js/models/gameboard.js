@@ -71,7 +71,12 @@ class Gameboard {
         if (hit) {
             var ship = this.coordinates[x][y];
             ship.hit();
-            return true;
+            var sunk = ship.isSunk();
+            return {
+                "ship_sunk": sunk,
+                "hit": true,
+            };
+            
         } else {
             this.missedShots.push([x, y]);
             return false;

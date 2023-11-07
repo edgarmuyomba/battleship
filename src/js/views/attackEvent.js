@@ -1,4 +1,5 @@
-function clickFeedback(data) { // data: { target: human, hit: true, cell: cell, gameOver: true }
+function clickFeedback(data) { // data: { target: human, hit: true, ship_sunk: true, cell: cell, gameOver: true }
+    console.log(data);
     var cell = data["cell"];
     if (data["hit"]) {
         // paint the cell red
