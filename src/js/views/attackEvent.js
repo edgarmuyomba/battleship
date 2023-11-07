@@ -33,13 +33,12 @@ function clickFeedback(data) { // data: { target: human, hit: true, ship_sunk: t
 }
 
 function updateShipYard(data) { // data { target: human, ship_name: cruiser }
+    console.log(data);
     const view_ships = document.querySelectorAll(`.${data["target"]} .ships > p`);
-    console.log(view_ships);
     view_ships.forEach((ship) => {
-        if (ship.classList[0] === data["ship_name"]) {
-            ship.classList.add("hit");
-            console.log(ship);
-        }
+       if (ship.classList[0] === data['ship_name'].toLowerCase()) {
+        ship.classList.add("hit");
+       }
     })
 }
 
