@@ -9,7 +9,7 @@ var h_cells = [];
     let rows = document.querySelectorAll(".human table tr");
     for (let i = 1; i <= 10; i++) {
         var row = rows[i];
-        let _cells = row.querySelectorAll("td.cell");
+        let _cells = row.querySelectorAll("td[class^='cell']");
         h_cells.push(..._cells)
     }
 })();
@@ -23,7 +23,7 @@ var c_cells = [];
     let rows = document.querySelectorAll(".computer table tr");
     for (let i = 1; i <= 10; i++) {
         var row = rows[i];
-        let _cells = row.querySelectorAll("td.cell");
+        let _cells = row.querySelectorAll("td[class^='cell']");
         c_cells.push(..._cells)
     }
 })();
@@ -66,7 +66,7 @@ function receiveClick(data) { // data: { target: human, cell: cell }
 
 
     // triangulate coordinates
-    var cellNo = parseInt(cell.classList[1]) - 1;
+    var cellNo = parseInt(cell.classList[0].split('-')[1]) - 1;
     var rowNo = Math.floor(map[target][0].indexOf(cell) / 10);
 
     // modify gameboard

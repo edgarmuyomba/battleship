@@ -20,11 +20,11 @@ auto_placement(human);
 
 // create players
 const person = new Player();
-// person.turn = true;
+person.turn = true;
 
 const cpu = new Player();
 cpu.ai = true;
-cpu.turn = true;
+// cpu.turn = true;
 
 // game control
 var gameOver = false;

@@ -1,5 +1,6 @@
 import { cpu } from "./gameLoop";
 import { receiveClick } from "./attack_controller";
+import { clickFeedback } from "../views/attackEvent";
 
 function cpuMove() {
     if (!cpu.turn) return;
@@ -8,21 +9,19 @@ function cpuMove() {
     while (cpu.attacks_made.includes([coords["x"], coords["y"]])) {
         coords = randPoint();
     }
-    console.log(coords);
     var cell = findCell(coords["x"], coords["y"]);
-
-    console.log(cell);
     
     //simulate the click
-    // receiveClick({ "target": "human", "cell": cell });
+    var attack = receiveClick({ "target": "human", "cell": cell });
+    clickFeedback(attack);
 }
 
 function findCell(x, y) {
     var rowNo = x;
     var cellNo = y;
     
-    let row = document.querySelector(`.human tr.${rowNo}`);
-    let cell = row.querySelector(`td.cell.${cellNo}`);
+    let row = document.querySelector(`.human tr.row-${rowNo}`);
+    let cell = row.querySelector(`td.cell-${cellNo}`);
 
     return cell;
 }
@@ -34,4 +33,4 @@ function randPoint() {
     }
 }
 
-cpuMove();
+export { cpuMove };
