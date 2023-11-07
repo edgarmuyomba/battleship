@@ -41,12 +41,26 @@ class Gameboard {
         if (axis === 1) {
             var end = [x + length, y];
             for (var i = x; i < end[0]; i++) {
-                if (this.coordinates[i][y] !== null) return false;
+                let value;
+                try {
+                    value = this.coordinates[i][y];
+                } catch(TypeError) {
+                    return false
+                } finally {
+                    if (value !== null) return false;
+                }
             }
         } else if (axis === 0) {
             var end = [x, y + length];
             for (var i = y; i < end[1]; i++) {
-                if (this.coordinates[x][i] !== null) return false;
+                let value;
+                try {
+                    value = this.coordinates[x][i];
+                } catch(TypeError) {
+                    return false
+                } finally {
+                    if (value !== null) return false;
+                }
             }
         }
         return true;
