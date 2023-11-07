@@ -1,6 +1,7 @@
-import { cpu } from "./gameLoop";
+import { cpu } from "../views/newGame";
 import { receiveClick } from "./attack_controller";
 import { clickFeedback } from "../views/attackEvent";
+import { toggleTurn } from "./turns";
 
 function cpuMove() {
     if (!cpu.turn) return;
@@ -11,9 +12,11 @@ function cpuMove() {
     }
     var cell = findCell(coords["x"], coords["y"]);
     
-    //simulate the click
+    //simulate the click 
     var attack = receiveClick({ "target": "human", "cell": cell });
     clickFeedback(attack);
+    // change to human after playing
+    toggleTurn();
 }
 
 function findCell(x, y) {

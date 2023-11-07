@@ -1,34 +1,94 @@
-import { newGame } from "../views/newGame";
+import { newGame, human, cpu, person, computer } from "../views/newGame";
+import { cpuMove } from "./ai_play.js";
+import { toggleTurn } from "./turns.js";
+import { clickFeedback } from "../views/attackEvent.js";
+import { receiveClick } from "./attack_controller.js";
+
 const Gameboard = require("../models/gameboard.js");
-import { auto_placement } from "./ship_placement.js";
 const Player = require("../models/player.js");
 
 // start the game
 const start = document.querySelector(".start .button");
 start.addEventListener("click", () => newGame("newGame"));
 
-// generate gameboards 
-
-const human = new Gameboard();
-
-const computer = new Gameboard();
-
-// generate ships
-auto_placement(computer);
-
-auto_placement(human);
-
-// create players
-const person = new Player();
-person.turn = true;
-
-const cpu = new Player();
-cpu.ai = true;
-// cpu.turn = true;
-
 // game control
-var gameOver = false;
+
+// human gameboard and cells
+
+var h_cells = [];
+
+(function fetchCells() {
+    let rows = document.querySelectorAll(".human table tr");
+    for (let i = 1; i <= 10; i++) {
+        var row = rows[i];
+        let _cells = row.querySelectorAll("td[class^='cell']");
+        h_cells.push(..._cells)
+    }
+})();
+
+
+// computer gameboard and cells 
+
+var c_cells = [];
+
+(function fetchCells() {
+    let rows = document.querySelectorAll(".computer table tr");
+    for (let i = 1; i <= 10; i++) {
+        var row = rows[i];
+        let _cells = row.querySelectorAll("td[class^='cell']");
+        c_cells.push(..._cells)
+    }
+})();
+
+
+// computer_gb clicked
+
+const GAMEOVER = {
+    "state": false
+}; // global variable
+
+(function playRound() {
+    person.turn = true;
+
+    // wait for user click
+    c_cells.forEach((cell) => {
+        cell.addEventListener('click', () => {
+            if (person.turn) {
+                var attack = receiveClick({ "target": "computer", "cell": cell });
+                clickFeedback(attack);
+                // check for gameover
+                if (GAMEOVER["state"]) endGame();
+                // switch to cpu turn
+                toggleTurn();
+                // cpu play
+                setTimeout(cpuMove, 500);
+                // check for gameover
+                if (GAMEOVER["state"]) endGame();
+            }
+        });
+    });
+})();
+
+function endGame() {
+    if (GAMEOVER["state"]) {
+        person.turn = false;
+        cpu.turn = false;
+        setTimeout(() => {
+            // end the game, last target is the loser!
+            const gameOver = document.querySelector("div.game-container");
+            let winner = gameOver.querySelector("div.winner");
+
+            let _winner = person.turn ? "CPU" : "You";
+            winner.textContent = `${_winner} won this round`;
+            gameOver.style = "";
+        }, 500);
+    }
+}
+
+// restarting the game
+const playAgain = document.querySelector(".gameOver > p.button");
+playAgain.addEventListener("click", () => newGame("gameOver"));
 
 console.log(computer.coordinates);
 
-export { computer, human, cpu, person };
+export { GAMEOVER, c_cells, h_cells };
