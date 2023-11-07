@@ -1,5 +1,4 @@
 function clickFeedback(data) { // data: { target: human, hit: true, ship_sunk: true, ship_name: "Cruiser", cell: cell, gameOver: true }
-    console.log(data["ship_sunk"]);
     var cell = data["cell"];
     if (data["hit"]) {
         // paint the cell red
@@ -33,7 +32,6 @@ function clickFeedback(data) { // data: { target: human, hit: true, ship_sunk: t
 }
 
 function updateShipYard(data) { // data { target: human, ship_name: cruiser }
-    console.log(data);
     const view_ships = document.querySelectorAll(`.${data["target"]} .ships > p`);
     view_ships.forEach((ship) => {
        if (ship.classList[0] === data['ship_name'].toLowerCase()) {
