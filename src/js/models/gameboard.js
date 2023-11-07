@@ -18,20 +18,32 @@ class Gameboard {
     }
 
     addShip(x, y, axis, ship) {
-        // adds a new ship to the gameboard
-        this.ships.push(ship);
-
-        if (axis === 0) {
-            var end = [x + ship.length, y];
-            for (var i = x; i <= end[0]; i++) {
-                this.coordinates[i][y] = ship;
+        if (this.verifyPlacement(x, y, ship.length)) {
+            if (axis === 0) {
+                var end = [x + ship.length, y];
+                for (var i = y; i <= end[0]; i++) {
+                    this.coordinates[x][i] = ship;
+                }
+            } else if (axis === 1) {
+                var end = [x, y + ship.length];
+                for (var i = x; i <= end[1]; i++) {
+                    this.coordinates[i][y] = ship;
+                }
             }
-        } else if (axis === 1) {
-            var end = [x, y + ship.length];
-            for (var i = y; i <= end[1]; i++) {
-                this.coordinates[x][i] = ship;
+
+            // adds a new ship to the gameboard
+            this.ships.push(ship);
+            return true;
+        } else return false;
+    }
+
+    verifyPlacement(x, y, length) {
+        for (var i = x; i <= x + length; i++) {
+            for (var j = y; j <= y + length; j++) {
+                if (this.coordinates[i][j] !== null) return false;
             }
         }
+        return true;
     }
 
     receiveAttack(x, y) {

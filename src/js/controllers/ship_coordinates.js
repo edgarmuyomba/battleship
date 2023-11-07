@@ -2,18 +2,18 @@ function valid_coords(x, y, axis, length) { // axis: 0 - horizontal, 1 - vertica
     if ((x < 1) || (y < 1) || (x > 10) || (y > 10)) return false;
     if (axis === 0) {
         // horizontal
-        if ((x + length) > 10) return false;
+        if ((x + length) > 9) return false;
         return true;
     } else if (axis === 1) {
         // vertical
-        if ((y + length) > 10) return false;
+        if ((y + length) > 9) return false;
         return true;
     }
 }
 
 function random_coords(length) {
     // used to generate random coordinates for ship placement
-    const axis = Math.floor(Math.random() * 1);
+    const axis = Math.floor(Math.random() * 2);
     var x = -1;
     var y = -1;
     
