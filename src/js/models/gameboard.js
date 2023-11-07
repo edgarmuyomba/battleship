@@ -73,10 +73,11 @@ class Gameboard {
             ship.hit();
             var sunk = ship.isSunk();
             return {
+                "ship_name": ship.name,
                 "ship_sunk": sunk,
                 "hit": true,
             };
-            
+
         } else {
             this.missedShots.push([x, y]);
             return false;

@@ -10,13 +10,13 @@ start.addEventListener("click", () => newGame("newGame"));
 
 const human = new Gameboard();
 
-const cpu = new Gameboard();
+const computer = new Gameboard();
 
 // generate ships
-auto_placement(cpu);
+auto_placement(computer);
 
 auto_placement(human);
 
-console.log(cpu.coordinates);
+console.log(computer.coordinates);
 
-export { cpu, human };
+export { computer, human };

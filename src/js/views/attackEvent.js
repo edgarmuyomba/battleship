@@ -1,5 +1,5 @@
-function clickFeedback(data) { // data: { target: human, hit: true, ship_sunk: true, cell: cell, gameOver: true }
-    console.log(data);
+function clickFeedback(data) { // data: { target: human, hit: true, ship_sunk: true, ship_name: "Cruiser", cell: cell, gameOver: true }
+    console.log(data["ship_sunk"]);
     var cell = data["cell"];
     if (data["hit"]) {
         // paint the cell red
@@ -17,6 +17,8 @@ function clickFeedback(data) { // data: { target: human, hit: true, ship_sunk: t
                             `;
     }
 
+    if (data["ship_sunk"]) updateShipYard({ "target": data["target"], "ship_name": data["ship_name"] });
+
     if (data["gameOver"]) {
         setTimeout(() => {
             // end the game, last target is the loser!
@@ -28,6 +30,17 @@ function clickFeedback(data) { // data: { target: human, hit: true, ship_sunk: t
             gameOver.style = "";
         }, 3000); 
     }
+}
+
+function updateShipYard(data) { // data { target: human, ship_name: cruiser }
+    const view_ships = document.querySelectorAll(`.${data["target"]} .ships > p`);
+    console.log(view_ships);
+    view_ships.forEach((ship) => {
+        if (ship.classList[0] === data["ship_name"]) {
+            ship.classList.add("hit");
+            console.log(ship);
+        }
+    })
 }
 
 export { clickFeedback };

@@ -1,5 +1,5 @@
 import { clickFeedback } from "../views/attackEvent.js";
-import { cpu, human } from "./gameLoop.js";
+import { computer, human } from "./gameLoop.js";
 
 // human gameboard and cells
 
@@ -40,13 +40,13 @@ h_cells.forEach((cell) => {
 });
 
 
-// cpu_gb clicked
+// computer_gb clicked
 
 const c_attacks = {}; // keep track of previous attacks made
 
 c_cells.forEach((cell) => {
     cell.addEventListener('click', () => {
-        var attack = receiveClick({"target": "cpu", "cell": cell});
+        var attack = receiveClick({"target": "computer", "cell": cell});
         clickFeedback(attack);
     });
 });
@@ -61,7 +61,7 @@ function receiveClick(data) { // data: { target: human, cell: cell }
     // target -> objects map
     const map = {
         "human": [h_cells, h_attacks, human],
-        "cpu": [c_cells, c_attacks, cpu]
+        "computer": [c_cells, c_attacks, computer]
     };
 
 
