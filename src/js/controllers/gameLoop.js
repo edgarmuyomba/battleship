@@ -4,12 +4,11 @@ import { toggleTurn } from "./turns.js";
 import { clickFeedback } from "../views/attackEvent.js";
 import { receiveClick } from "./attack_controller.js";
 
-const Gameboard = require("../models/gameboard.js");
-const Player = require("../models/player.js");
-
 // start the game
 const start = document.querySelector(".start .button");
 start.addEventListener("click", () => newGame("newGame"));
+
+newGame("newGame");
 
 // game control
 
@@ -40,14 +39,13 @@ var c_cells = [];
     }
 })();
 
-
 // computer_gb clicked
 
 const GAMEOVER = {
     "state": false
 }; // global variable
 
-(function playRound() {
+function playRound(c_cells) {
     person.turn = true;
 
     // wait for user click
@@ -67,8 +65,13 @@ const GAMEOVER = {
             }
         });
     });
-})();
+}
 
+// start the game
+playRound(c_cells);
+
+
+// game ended
 function endGame() {
     if (GAMEOVER["state"]) {
         person.turn = false;
@@ -89,6 +92,4 @@ function endGame() {
 const playAgain = document.querySelector(".gameOver > p.button");
 playAgain.addEventListener("click", () => newGame("gameOver"));
 
-console.log(computer.coordinates);
-
-export { GAMEOVER, c_cells, h_cells };
+export { GAMEOVER, c_cells, h_cells, playRound };
