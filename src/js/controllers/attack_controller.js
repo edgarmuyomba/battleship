@@ -1,10 +1,7 @@
 import { clickFeedback } from "../views/attackEvent.js";
-
-const Gameboard = require("../models/gameboard.js");
+import { cpu, human } from "./gameLoop.js";
 
 // human gameboard and cells
-
-const human = new Gameboard();
 
 var h_cells = [];
 
@@ -19,8 +16,6 @@ var h_cells = [];
 
 
 // computer gameboard and cells 
-
-const cpu = new Gameboard();
 
 var c_cells = [];
 
@@ -71,8 +66,8 @@ function receiveClick(data) { // data: { target: human, cell: cell }
 
 
     // triangulate coordinates
-    var cellNo = parseInt(cell.classList[1]);
-    var rowNo = Math.floor(map[target][0].indexOf(cell) / 10) + 1;
+    var cellNo = parseInt(cell.classList[1]) - 1;
+    var rowNo = Math.floor(map[target][0].indexOf(cell) / 10);
 
     // modify gameboard
     if (!map[target][1][`${rowNo}, ${cellNo}`]) {
