@@ -83,3 +83,5 @@ function receiveClick(data) { // data: { target: human, cell: cell }
     }
 
 }
+
+export { receiveClick };
