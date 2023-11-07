@@ -1,6 +1,7 @@
 import { newGame } from "../views/newGame";
 const Gameboard = require("../models/gameboard.js");
 const Ship = require("../models/ship.js");
+const random_coords = require("../controllers/ship_coordinates.js");
 
 // start the game
 const start = document.querySelector(".start .button");
@@ -39,5 +40,5 @@ let ships = [
 // cpu 
 for (var i=0; i<5; i++) {
     let ship = new Ship(ships[i]["name"], ships[i]["length"]);
-    
-}
+      
+} 
