@@ -40,7 +40,6 @@ let ships = [
 // cpu 
 for (var i = 0; i < 5; i++) {
     let ship = new Ship(ships[i]["name"], ships[i]["length"]);
-    console.log(ship);
     var state = false;
     while (!state) {
         let coords = random_coords(ship.length);
@@ -48,4 +47,3 @@ for (var i = 0; i < 5; i++) {
     }
 }
 
-// console.log(cpu.coordinates, cpu.ships.length);

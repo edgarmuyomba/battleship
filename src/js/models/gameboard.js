@@ -18,16 +18,16 @@ class Gameboard {
     }
 
     addShip(x, y, axis, ship) {
-        if (this.verifyPlacement(x, y, ship.length)) {
-            if (axis === 0) {
+        if (this.verifyPlacement(x, y, ship.length, axis)) {
+            if (axis === 1) {
                 var end = [x + ship.length, y];
-                for (var i = y; i <= end[0]; i++) {
-                    this.coordinates[x][i] = ship;
-                }
-            } else if (axis === 1) {
-                var end = [x, y + ship.length];
-                for (var i = x; i <= end[1]; i++) {
+                for (var i = x; i < end[0]; i++) {
                     this.coordinates[i][y] = ship;
+                }
+            } else if (axis === 0) {
+                var end = [x, y + ship.length];
+                for (var i = y; i < end[1]; i++) {
+                    this.coordinates[x][i] = ship;
                 }
             }
 
@@ -37,10 +37,16 @@ class Gameboard {
         } else return false;
     }
 
-    verifyPlacement(x, y, length) {
-        for (var i = x; i <= x + length; i++) {
-            for (var j = y; j <= y + length; j++) {
-                if (this.coordinates[i][j] !== null) return false;
+    verifyPlacement(x, y, length, axis) {
+        if (axis === 1) {
+            var end = [x + length, y];
+            for (var i = x; i < end[0]; i++) {
+                if (this.coordinates[i][y] !== null) return false;
+            }
+        } else if (axis === 0) {
+            var end = [x, y + length];
+            for (var i = y; i < end[1]; i++) {
+                if (this.coordinates[x][i] !== null) return false;
             }
         }
         return true;
@@ -66,22 +72,5 @@ class Gameboard {
         return true;
     }
 }
-
-var gameboard = new Gameboard();
-var my_ship = new Ship(5);
-
-gameboard.addShip(2, 3, my_ship);
-gameboard.receiveAttack(1, 1);
-
-function testLength(x, y, length, coordinates) {
-    for (let i = x; i <= (x + length); i++) {
-        if (coordinates[i][y] === null) return false;
-    }
-    return true;
-}
-
-// console.log(testLength(2,3,5, gameboard.coordinates));
-
-// console.log(gameboard.missedShots);
 
 module.exports = Gameboard;
