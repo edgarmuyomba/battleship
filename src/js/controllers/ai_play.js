@@ -7,14 +7,18 @@ function cpuMove() {
     if (!cpu.turn) return;
     // getting a random cell to attack
     var coords = randPoint();
-    while (cpu.attacks_made.includes([coords["x"], coords["y"]])) {
+    while (cpu.check_attack(coords["x"], coords["y"])) {
         coords = randPoint();
     }
     var cell = findCell(coords["x"], coords["y"]);
-    
+    console.log(cpu.attacks_made);
     //simulate the click 
     var attack = receiveClick({ "target": "human", "cell": cell });
-    clickFeedback(attack);
+    try {
+        clickFeedback(attack);
+    } catch (e) {
+        console.log(coords);
+    }
     // change to human after playing
     toggleTurn();
 }
@@ -22,7 +26,7 @@ function cpuMove() {
 function findCell(x, y) {
     var rowNo = x;
     var cellNo = y;
-    
+
     let row = document.querySelector(`.human tr.row-${rowNo}`);
     let cell = row.querySelector(`td.cell-${cellNo}`);
 

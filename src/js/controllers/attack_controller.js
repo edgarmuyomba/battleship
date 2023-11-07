@@ -1,5 +1,5 @@
 import { c_cells, h_cells } from "./gameLoop.js";
-import { computer, human } from "../views/newGame.js";
+import { computer, human, cpu, person } from "../views/newGame.js";
 
 // handling clicks
 
@@ -9,8 +9,8 @@ function receiveClick(data) { // data: { target: human, cell: cell }
 
     // target -> objects map
     const map = {
-        "human": [h_cells, human],
-        "computer": [c_cells, computer]
+        "human": [h_cells, human, person],
+        "computer": [c_cells, computer, cpu]
     };
 
     // triangulate coordinates
@@ -18,8 +18,8 @@ function receiveClick(data) { // data: { target: human, cell: cell }
     var rowNo = Math.floor(map[target][0].indexOf(cell) / 10);
 
     // modify gameboard
-    if (!map[target][1][`${rowNo}, ${cellNo}`]) {
-        map[target][1][`${rowNo}, ${cellNo}`] = true;
+    if (!map[target][2].check_attack(rowNo, cellNo)) {
+        map[target][2].add_attack(rowNo, cellNo);
         var attack = map[target][1].receiveAttack(rowNo, cellNo);
         var gameOver = map[target][1].allSunk();
         return {
