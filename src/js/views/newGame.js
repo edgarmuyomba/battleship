@@ -31,6 +31,12 @@ function newGame(state) { // either gameOver or newGame
         cell.innerHTML = '';
     }
 
+    // clear shipyard
+    const ships = document.querySelectorAll("div.ships > *");
+    for(let ship of ships) {
+        ship.classList.remove("hit");
+    }
+
     // new boards and players
     human = new Gameboard();
     computer = new Gameboard();
