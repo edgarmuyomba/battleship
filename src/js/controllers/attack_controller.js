@@ -28,6 +28,9 @@ function receiveClick(data) { // data: { target: human, cell: cell }
             "gameOver": gameOver,
             ...attack
         };
+    } else {
+        // inability to click the same cell twice
+        return { "message": "Already Attacked this cell!" };
     }
 
 }

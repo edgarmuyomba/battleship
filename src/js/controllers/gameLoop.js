@@ -53,15 +53,18 @@ function playRound(c_cells) {
         cell.addEventListener('click', () => {
             if (person.turn) {
                 var attack = receiveClick({ "target": "computer", "cell": cell });
-                clickFeedback(attack);
-                // check for gameover
-                if (GAMEOVER["state"]) endGame();
-                // switch to cpu turn
-                toggleTurn();
-                // cpu play
-                setTimeout(cpuMove, 500);
-                // check for gameover
-                if (GAMEOVER["state"]) endGame();
+                if (!attack["message"]) {
+                    clickFeedback(attack);
+                    // check for gameover
+                    if (GAMEOVER["state"]) endGame();
+                    // switch to cpu turn
+                    toggleTurn();
+                    // cpu play
+                    setTimeout(cpuMove, 500);
+                    // check for gameover
+                    if (GAMEOVER["state"]) endGame();
+                }
+
             }
         });
     });

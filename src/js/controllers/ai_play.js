@@ -6,21 +6,29 @@ import { toggleTurn } from "./turns";
 function cpuMove() {
     if (!cpu.turn) return;
     // getting a random cell to attack
+    var cell = getCell();
+    console.log(cpu.attacks_made);
+
+    //simulate the click 
+    var attack = receiveClick({ "target": "human", "cell": cell });
+    while (attack["message"]) { // similar cell clicked
+        // get a new cell and try click again
+        cell = getCell();
+        attack = receiveClick({ "target": "human", "cell": cell });
+    }
+    clickFeedback(attack);
+    // change to human after playing
+    toggleTurn();
+}
+
+function getCell() {
+    // finding the random cell to attack
     var coords = randPoint();
     while (cpu.check_attack(coords["x"], coords["y"])) {
         coords = randPoint();
     }
     var cell = findCell(coords["x"], coords["y"]);
-    console.log(cpu.attacks_made);
-    //simulate the click 
-    var attack = receiveClick({ "target": "human", "cell": cell });
-    try {
-        clickFeedback(attack);
-    } catch (e) {
-        console.log(coords);
-    }
-    // change to human after playing
-    toggleTurn();
+    return cell;
 }
 
 function findCell(x, y) {
