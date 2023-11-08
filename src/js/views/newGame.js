@@ -54,8 +54,6 @@ function newGame(state) { // either gameOver or newGame
         }
     })();
     playRound(c_cells);
-
-    console.log(computer.coordinates);
 }
 
 export { newGame, human, computer, person, cpu };

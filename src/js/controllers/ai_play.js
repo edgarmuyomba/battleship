@@ -2,12 +2,12 @@ import { cpu } from "../views/newGame";
 import { receiveClick } from "./attack_controller";
 import { clickFeedback } from "../views/attackEvent";
 import { toggleTurn } from "./turns";
+import { GAMEOVER } from "./gameLoop";
 
 function cpuMove() {
     if (!cpu.turn) return;
     // getting a random cell to attack
     var cell = getCell();
-    console.log(cpu.attacks_made);
 
     //simulate the click 
     var attack = receiveClick({ "target": "human", "cell": cell });
@@ -48,4 +48,4 @@ function randPoint() {
     }
 }
 
-export { cpuMove };
+export { cpuMove, findCell, getCell, randPoint };

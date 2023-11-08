@@ -8,7 +8,7 @@ import { receiveClick } from "./attack_controller.js";
 const start = document.querySelector(".start .button");
 start.addEventListener("click", () => newGame("newGame"));
 
-newGame("newGame");
+// newGame("newGame");
 
 // game control
 
@@ -68,6 +68,7 @@ function playRound(c_cells) {
             }
         });
     });
+
 }
 
 // start the game
@@ -96,3 +97,5 @@ const playAgain = document.querySelector(".gameOver > p.button");
 playAgain.addEventListener("click", () => newGame("gameOver"));
 
 export { GAMEOVER, c_cells, h_cells, playRound };
+
+export { endGame };
