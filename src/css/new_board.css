@@ -1,0 +1,50 @@
+.new_board {
+    /* border: 1px solid red; */
+    padding: 1rem;
+    width: 25rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.new_board > .header {
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.new_board > .auto {
+    margin: 0.9rem 0;
+    font-size: 0.7rem;
+    border: 1px solid grey;
+}
+
+.new_board > .auto:hover {
+    background-color: grey;
+}
+
+.new_board > .instruction {
+    font-size: 0.9rem;
+}
+
+.new_board span {
+    text-decoration: underline;
+}
+
+.new_board table {
+    margin-top: 0.5rem;
+    border: 1px solid black;
+    padding: 1.4rem;
+    background-color: whitesmoke;
+}
+
+.new_board td[class^='cell'] {
+    height: 1.7rem;
+    width: 1.7rem;
+    border-radius: 2px;
+    background-color: lightgray;
+    border: 1px solid gray;
+}
+
+.new_board td[class^='cell']:hover {
+    background-color: grey;
+}

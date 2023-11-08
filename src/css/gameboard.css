@@ -3,8 +3,8 @@
 }
 
 td[class^='cell'] {
-    width: 30px;
-    height: 30px;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 2px;
 }
 
@@ -62,12 +62,12 @@ table .hit {
 
 .boards .header {
     width: 100%;
-    padding: 6px;
+    padding: 0.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    margin: 20px 0;
+    margin: 1.5rem 0;
 }
 
 .human .header {
@@ -83,31 +83,31 @@ table .hit {
 /* shipyard styles */
 
 .shipyard {
-    margin: 10px;
+    margin: 0.5rem;
     display: flex;
     color: slategray;
-    height: 100px;
+    height: 5rem;
     width: 100%;
 }
 
 .shipyard .title {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    line-height: 30px;
+    line-height: 1.2rem;
     font-weight: 600;
-    font-size: 13px;
-    margin-bottom: 16px;
+    font-size: 0.7rem;
+    margin-bottom: 0.7rem;
 }
 
 .shipyard .ships {
-    font-size: 12px;
+    font-size: 0.6rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
 .ships > * {
-    margin: 8px;
+    margin: 0.4rem;
 }
 
 .ships > .hit {
