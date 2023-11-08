@@ -9,3 +9,4 @@ import './css/new_board.css';
 import './js/controllers/attack_controller.js'
 import './js/controllers/gameLoop.js';
 import './js/controllers/ai_play.js';
+import './js/controllers/initial_placement.js';

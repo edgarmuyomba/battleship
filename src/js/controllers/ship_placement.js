@@ -35,4 +35,8 @@ function auto_placement(gameboard) {
     }
 }
 
+function view_to_board(coords, ship) { // coords: { x:_, y:_ }
+    
+}
+
 export { auto_placement };

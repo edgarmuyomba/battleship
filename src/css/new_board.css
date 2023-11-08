@@ -7,11 +7,6 @@
     flex-direction: column;
 }
 
-.new_board > .header {
-    font-weight: 700;
-    font-size: 1.4rem;
-}
-
 .new_board > .auto {
     margin: 0.9rem 0;
     font-size: 0.7rem;
