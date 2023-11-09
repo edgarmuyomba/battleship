@@ -19,11 +19,26 @@ function newGame(state) { // either gameOver or newGame
         gameOver.style.display = "none";
     } else if (state === "newGame") {
         const start = document.querySelector("div.start");
-        const boards = document.querySelector("div.boards");
 
         start.style.display = "none";
-        boards.style.display = "";
     }
+
+    const boards = document.querySelector("div.boards");
+    boards.style.display = "none";
+
+    const new_board = document.querySelector("div.new_board");
+    new_board.style.display = "";
+
+    // new boards and players
+    // human = new Gameboard();
+    // computer = new Gameboard();
+    // person = new Player();
+    // cpu = new Player();
+}
+
+function playGame() {
+    // generate ships
+    auto_placement(computer);
 
     // clear cells
     const cells = document.querySelectorAll("td[class^='cell']");
@@ -33,20 +48,15 @@ function newGame(state) { // either gameOver or newGame
 
     // clear shipyard
     const ships = document.querySelectorAll("div.ships > *");
-    for(let ship of ships) {
+    for (let ship of ships) {
         ship.classList.remove("hit");
     }
 
-    // new boards and players
-    human = new Gameboard();
-    computer = new Gameboard();
-    person = new Player();
-    cpu = new Player();
+    const boards = document.querySelector("div.boards");
+    const new_board = document.querySelector("div.new_board");
 
-    // generate ships
-    auto_placement(computer);
-
-    auto_placement(human);
+    new_board.style.display = "none";
+    boards.style.display = "";
 
     // start the game
     var c_cells = [];
@@ -62,4 +72,9 @@ function newGame(state) { // either gameOver or newGame
     playRound(c_cells);
 }
 
-export { newGame, human, computer, person, cpu };
+function autoPlacement() {
+    auto_placement(human);
+    playGame();
+}
+
+export { newGame, autoPlacement, playGame, human, computer, person, cpu };

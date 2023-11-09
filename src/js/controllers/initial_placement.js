@@ -1,4 +1,5 @@
-const valid_coords = require("./ship_coordinates");
+import { human } from "../views/newGame";
+import { autoPlacement, playGame } from "../views/newGame";
 const Ship = require("../models/ship");
 
 var h_cells = [];
@@ -40,13 +41,18 @@ let current = ships[i];
 let axis = 0;
 
 const updateCurr = () => {
-    current = ships[++i];
-    axis = 0;
+    if (i >= 5) setTimeout(() => playGame, 700);
+    else {
+        current = ships[++i];
+        axis = 0;
+    }
 }
 
-function placeShip(coords) { // coords = { x: , y: }
-
-    updateCurr();
+function placeShip(cell) {
+    var coords = findCoords(cell);
+    let ship = new Ship(current["name"], current["name"]);
+    var state = human.addShip(coords["x"], coords["y"], axis, ship);
+    if (state) updateCurr();
 }
 
 function highlightCells(cell) {
@@ -106,7 +112,6 @@ function findCoords(cell) {
 }
 
 function findCell(x, y) {
-    console.log(x, y);
     var rowNo = x;
     var cellNo = y;
 
@@ -120,11 +125,17 @@ function findCell(x, y) {
 
 }
 
+// ability to auto place the ships
+const auto_place = document.querySelector(".new_board .auto");
+auto_place.addEventListener("click", () => autoPlacement());
+
+// rotate ship's axis
 const rotate = document.querySelector(".new_board button.rotate");
 rotate.addEventListener("click", () => {
     axis = axis === 0 ? 1 : 0;
 });
 
+// placing a ship
 cells.forEach((cell) => {
     cell.addEventListener("mouseenter", () => {
         highlightCells(cell);
@@ -135,7 +146,6 @@ cells.forEach((cell) => {
     });
 
     cell.addEventListener("click", () => {
-        var coords = findCoords(cell);
-        placeShip(coords);
+        placeShip(cell);
     });
 });

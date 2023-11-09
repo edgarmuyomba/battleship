@@ -30,7 +30,6 @@ class Gameboard {
                     this.coordinates[x][i] = ship;
                 }
             }
-
             // adds a new ship to the gameboard
             this.ships.push(ship);
             return true;
