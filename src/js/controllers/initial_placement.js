@@ -47,40 +47,28 @@ function placeShip(coords) { // coords = { x: , y: }
     updateCurr();
 }
 
-function removeClass(cell) {
-    var coords = findCoords(cell); // coords = { x: , y: }
-
-    var _cells = [];
-    for (let i = coords["x"]; i < coords["x"] + current["length"]; i++) {
-        if (valid_coords(coords["x"], i, 0, current.length)) {
-            let _cell = findCell(coords["x"] + 1, i + 1);
-            _cells.push(_cell);
-        } else {
-            console.log("Invalid cell");
-        };
-    }
-    // console.log(_cells);
-    _cells.forEach((_cell) => {
-        _cell.classList.remove("hover");
-    })
-}
-
 function highlightCells(cell) { 
     var coords = findCoords(cell); // coords = { x: , y: }
 
-    var _cells = [];
-    for (let i = coords["x"]; i < coords["x"] + current["length"]; i++) {
-        if (valid_coords(coords["x"], i)) {
-            let _cell = findCell(coords["x"] + 1, i + 1);
-            _cells.push(_cell);
-        } else {
-            console.log("Invalid cell");
-        };
+    for (let i = coords["y"]; i < coords["y"] + current["length"]; i++) {
+        let _cell = findCell(coords.x+1, i+1);
+        console.log(_cell);
+        if (_cell) {
+            _cell.classList.add("hover");
+        } else return;
     }
-    // console.log(_cells);
-    _cells.forEach((_cell) => {
-        _cell.classList.add("hover");
-    })
+}
+
+function removeClasses(cell) {
+    var coords = findCoords(cell); // coords = { x: , y: }
+
+    for (let i = coords["y"]; i < coords["y"] + current["length"]; i++) {
+        let _cell = findCell(coords.x+1, i+1);
+        console.log(_cell);
+        if (_cell) {
+            _cell.classList.remove("hover");
+        } else return;
+    }
 }
 
 cells.forEach((cell) => {
@@ -88,9 +76,9 @@ cells.forEach((cell) => {
         highlightCells(cell);
     });
 
-    // cell.addEventListener("mouseleave", () => {
-    //     removeClass(cell);
-    // });
+    cell.addEventListener("mouseleave", () => {
+        removeClasses(cell);
+    });
 
     cell.addEventListener("click", () => {
         var coords = findCoords(cell);
