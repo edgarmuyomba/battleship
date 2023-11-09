@@ -2,7 +2,6 @@ import { cpu } from "../views/newGame";
 import { receiveClick } from "./attack_controller";
 import { clickFeedback } from "../views/attackEvent";
 import { toggleTurn } from "./turns";
-import { GAMEOVER } from "./gameLoop";
 
 function cpuMove() {
     if (!cpu.turn) return;

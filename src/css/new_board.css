@@ -40,6 +40,7 @@
     border: 1px solid gray;
 }
 
-.new_board td[class^='cell']:hover {
+.new_board td[class^='cell']:hover,
+.new_board td.hover {
     background-color: grey;
 }

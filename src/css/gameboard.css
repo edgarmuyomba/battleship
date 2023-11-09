@@ -12,8 +12,7 @@ td[class^='cell'] {
     background-color: lightcyan;
 }
 
-.human td[class^='cell']:hover,
-.human td.hover {
+.human td[class^='cell']:hover {
     background-color: rgb(173, 255, 255);
 }
 
@@ -28,8 +27,7 @@ td[class^='cell'] {
     background-color: lightgrey;
 }
 
-.computer td[class^='cell']:hover,
-.computer td.hover {
+.computer td[class^='cell']:hover {
     background-color: rgb(139, 139, 139);
 }
 
