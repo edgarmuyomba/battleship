@@ -7,13 +7,15 @@
     flex-direction: column;
 }
 
-.new_board > .auto {
+.new_board > .auto,
+.new_board > .rotate {
     margin: 0.9rem 0;
     font-size: 0.7rem;
     border: 1px solid grey;
 }
 
-.new_board > .auto:hover {
+.new_board > .auto:hover,
+.new_board > .rotate:hover {
     background-color: grey;
 }
 
@@ -40,7 +42,6 @@
     border: 1px solid gray;
 }
 
-.new_board td[class^='cell']:hover,
 .new_board td.hover {
     background-color: grey;
 }

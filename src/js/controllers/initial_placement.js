@@ -37,6 +37,7 @@ const cells = document.querySelectorAll(".new_board td[class^='cell']");
 
 let i = 0;
 let current = ships[i];
+let axis = 0;
 
 const updateCurr = () => {
     current = ships[++i];
@@ -50,13 +51,18 @@ function placeShip(coords) { // coords = { x: , y: }
 function highlightCells(cell) { 
     var coords = findCoords(cell); // coords = { x: , y: }
 
+    var _cells = [];
+
     for (let i = coords["y"]; i < coords["y"] + current["length"]; i++) {
         let _cell = findCell(coords.x+1, i+1);
-        console.log(_cell);
         if (_cell) {
-            _cell.classList.add("hover");
+            _cells.push(_cell);
         } else return;
     }
+
+    _cells.forEach((cell) => {
+        cell.classList.add("hover");
+    })
 }
 
 function removeClasses(cell) {
@@ -64,28 +70,11 @@ function removeClasses(cell) {
 
     for (let i = coords["y"]; i < coords["y"] + current["length"]; i++) {
         let _cell = findCell(coords.x+1, i+1);
-        console.log(_cell);
         if (_cell) {
             _cell.classList.remove("hover");
         } else return;
     }
 }
-
-cells.forEach((cell) => {
-    cell.addEventListener("mouseenter", () => {
-        highlightCells(cell);
-    });
-
-    cell.addEventListener("mouseleave", () => {
-        removeClasses(cell);
-    });
-
-    cell.addEventListener("click", () => {
-        var coords = findCoords(cell);
-        placeShip(coords);
-    });
-});
-
 
 function findCoords(cell) {
     // triangulate coordinates
@@ -106,3 +95,23 @@ function findCell(x, y) {
 
     return cell;
 }
+
+const rotate = document.querySelector(".new_board button.rotate");
+rotate.addEventListener("click", () => {
+    axis = axis === 0 ? 1 : 0;
+});
+
+cells.forEach((cell) => {
+    cell.addEventListener("mouseenter", () => {
+        highlightCells(cell);
+    });
+
+    cell.addEventListener("mouseleave", () => {
+        removeClasses(cell);
+    });
+
+    cell.addEventListener("click", () => {
+        var coords = findCoords(cell);
+        placeShip(coords);
+    });
+});
