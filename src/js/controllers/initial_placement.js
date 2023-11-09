@@ -35,19 +35,34 @@ const ships = [
 
 const cells = document.querySelectorAll(".new_board td[class^='cell']");
 
-for (let ship of ships) {
-    placeShip(ship);
+let i = 0;
+let current = ships[i];
+
+const updateCurr = () => {
+    current = ships[++i];
 }
 
-function placeShip(ship) {
-    cells.forEach((cell) => {
-        cell.addEventListener("mouseenter", () => {
-            var coords = findCoords(cell);
-            console.log(ship);
-            return;
-        });
-    })
+function placeShip(coords) { // coords = { x: , y: }
+
+    updateCurr();
 }
+
+function highlightCells(coords) { // coords = { x: , y: }
+
+}
+
+cells.forEach((cell) => {
+    cell.addEventListener("mouseenter", () => {
+        var coords = findCoords(cell);
+        highlightCells(coords);
+    });
+
+    cell.addEventListener("click", () => {
+        var coords = findCoords(cell);
+        placeShip(coords);
+    });
+});
+
 
 function findCoords(cell) {
     // triangulate coordinates
