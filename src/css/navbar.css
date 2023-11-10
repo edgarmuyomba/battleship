@@ -26,4 +26,16 @@
 .author {
     margin-left: auto;
     font-size: 13px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.author span {
+    padding-left: 4px;
+    transition: 0.2s scale ease-in-out;
+}
+
+.author span:hover {
+    scale: 1.2;
 }
