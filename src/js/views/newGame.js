@@ -16,6 +16,7 @@ var cpu = new Player();
 
 function newGame(state) { // either gameOver or newGame
     if (state === "gameOver") {
+        clear_initial_display();
         const gameOver = document.querySelector("div.game-container");
         gameOver.style.display = "none";
     } else if (state === "newGame") {
@@ -29,18 +30,12 @@ function newGame(state) { // either gameOver or newGame
 
     const new_board = document.querySelector("div.new_board");
     new_board.style.display = "";
-
-    // new boards and players
-    // human = new Gameboard();
-    // computer = new Gameboard();
-    // person = new Player();
-    // cpu = new Player();
 }
 
 function playGame() {
     // display the ships
     display_ships(human);
-    
+
     // generate ships
     auto_placement(computer);
 
@@ -79,6 +74,15 @@ function playGame() {
 function autoPlacement() {
     auto_placement(human);
     playGame();
+}
+
+function clear_initial_display() {
+    // clear the ships from the init display
+    const cells = document.querySelectorAll(".new_board td");
+    for (let cell of cells) {
+        cell.classList.remove("ship");
+        cell.classList.remove("hover");
+    }
 }
 
 export { newGame, autoPlacement, playGame, human, computer, person, cpu };

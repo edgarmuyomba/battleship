@@ -21,8 +21,8 @@ function clickFeedback(data) { // data: { target: human, hit: true, ship_sunk: t
     if (data["ship_sunk"]) updateShipYard({ "target": data["target"], "ship_name": data["ship_name"] });
 
     // update global gameover variable
-    GAMEOVER["state"] = data["gameOver"];
-    // GAMEOVER["state"] = true;
+    // GAMEOVER["state"] = data["gameOver"];
+    GAMEOVER["state"] = true;
 }
 
 function updateShipYard(data) { // data { target: human, ship_name: cruiser }
