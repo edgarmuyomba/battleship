@@ -35,6 +35,7 @@ const ships = [
 ];
 
 const cells = document.querySelectorAll(".new_board td[class^='cell']");
+const name = document.querySelector("p.instruction span");
 
 let i = 0;
 let current = ships[i];
@@ -46,6 +47,7 @@ const updateCurr = () => {
     }
     else {
         current = ships[++i];
+        name.textContent = current.name;
         axis = 0;
     }
 }
