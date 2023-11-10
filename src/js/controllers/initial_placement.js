@@ -42,7 +42,6 @@ let axis = 0;
 
 const updateCurr = () => {
     if (i+1 > 4) {
-        console.log(human.coordinates);
         setTimeout(() => playGame(), 700);
     }
     else {

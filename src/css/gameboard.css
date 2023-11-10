@@ -16,6 +16,10 @@ td[class^='cell'] {
     background-color: rgb(173, 255, 255);
 }
 
+.human td.ship {
+    background-color: lightgreen;
+}
+
 .human .miss {
     height: 70%;
     width: 70%;

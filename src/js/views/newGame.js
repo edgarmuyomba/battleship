@@ -2,6 +2,7 @@ import Gameboard from "../models/gameboard";
 import Player from "../models/player";
 import { auto_placement } from "../controllers/ship_placement";
 import { playRound } from "../controllers/gameLoop";
+import { display_ships } from "./view_ship_placement";
 
 // generate gameboards 
 var human = new Gameboard();
@@ -37,7 +38,9 @@ function newGame(state) { // either gameOver or newGame
 }
 
 function playGame() {
-    console.log(human.coordinates);
+    // display the ships
+    display_ships(human);
+    
     // generate ships
     auto_placement(computer);
 

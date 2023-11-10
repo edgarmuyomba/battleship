@@ -24,7 +24,7 @@
             <div class="header">Battleship</div>
             <button class="button">START</button>
         </div>
-        <div class="boards" style="display: none;">
+        <div class="boards">
             <div class="human">
                 <div class="header">
                     YOUR FLEET
@@ -47,13 +47,19 @@
                         <tr class="row-1">
                             <td>1</td>
                             <td class="cell-1">
-                                <div class="content"></div>
+                                <div class="content">
+                                    <div class="hit"></div>
+                                </div>
                             </td>
                             <td class="cell-2">
-                                <div class="content"></div>
+                                <div class="content">
+                                    <div class="hit"></div>
+                                </div>
                             </td>
                             <td class="cell-3">
-                                <div class="content"></div>
+                                <div class="content">
+                                    <div class="hit"></div>
+                                </div>
                             </td>
                             <td class="cell-4">
                                 <div class="content"></div>
@@ -750,7 +756,7 @@
                 </div>
             </div>
         </div>
-        <div class="new_board">
+        <div class="new_board" style="display: none;">
             <button class="auto">Auto placement</button>
             <p class="instruction">Place your <span>Carrier</span></p>
             <button class="rotate">Rotate</button>
