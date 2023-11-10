@@ -45,3 +45,8 @@
 .new_board td.hover {
     background-color: grey;
 }
+
+.new_board td.ship {
+    background-color: lightgreen;
+    border: 1px solid darkgreen;
+}

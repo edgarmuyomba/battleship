@@ -41,7 +41,7 @@ let current = ships[i];
 let axis = 0;
 
 const updateCurr = () => {
-    if (i+1 > 4) {
+    if (i + 1 > 4) {
         setTimeout(() => playGame(), 700);
     }
     else {
@@ -54,7 +54,10 @@ function placeShip(cell) {
     var coords = findCoords(cell);
     let ship = new Ship(current["name"], current["length"]);
     var state = human.addShip(coords["x"], coords["y"], axis, ship);
-    if (state) updateCurr();
+    if (state) {
+        display_ship(cell);
+        updateCurr();
+    }
 }
 
 function highlightCells(cell) {
@@ -80,6 +83,33 @@ function highlightCells(cell) {
 
     _cells.forEach((cell) => {
         cell.classList.add("hover");
+    })
+}
+
+function display_ship(cell) {
+    // display the ship on the board
+    var coords = findCoords(cell);
+
+    var _cells = [];
+
+    if (axis === 0) { // horizontal
+        for (let i = coords["y"]; i < coords["y"] + current["length"]; i++) {
+            let _cell = findCell(coords.x + 1, i + 1);
+            if (_cell) {
+                _cells.push(_cell);
+            } else return;
+        }
+    } else if (axis === 1) { // vertical
+        for (let i = coords["x"]; i < coords["x"] + current["length"]; i++) {
+            let _cell = findCell(i + 1, coords.y + 1);
+            if (_cell) {
+                _cells.push(_cell);
+            } else return;
+        }
+    }
+
+    _cells.forEach((cell) => {
+        cell.classList.add("ship");
     })
 }
 
