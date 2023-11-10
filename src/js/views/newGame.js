@@ -37,6 +37,7 @@ function newGame(state) { // either gameOver or newGame
 }
 
 function playGame() {
+    console.log(human.coordinates);
     // generate ships
     auto_placement(computer);
 

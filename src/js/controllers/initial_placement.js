@@ -41,7 +41,10 @@ let current = ships[i];
 let axis = 0;
 
 const updateCurr = () => {
-    if (i >= 5) setTimeout(() => playGame, 700);
+    if (i+1 > 4) {
+        console.log(human.coordinates);
+        setTimeout(() => playGame(), 700);
+    }
     else {
         current = ships[++i];
         axis = 0;
@@ -50,7 +53,7 @@ const updateCurr = () => {
 
 function placeShip(cell) {
     var coords = findCoords(cell);
-    let ship = new Ship(current["name"], current["name"]);
+    let ship = new Ship(current["name"], current["length"]);
     var state = human.addShip(coords["x"], coords["y"], axis, ship);
     if (state) updateCurr();
 }
