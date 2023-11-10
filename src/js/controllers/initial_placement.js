@@ -43,6 +43,10 @@ let axis = 0;
 
 const updateCurr = () => {
     if (i + 1 > 4) {
+        i = 0;
+        axis = 0;
+        current = ships[i];
+        
         setTimeout(() => playGame(), 700);
     }
     else {
